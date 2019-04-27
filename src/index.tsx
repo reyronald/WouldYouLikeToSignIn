@@ -29,16 +29,15 @@ function App() {
     })
   }
 
+  const openGreetUser = (username: string | undefined) => {
+    setUsername(username)
+    setGreetUserVisible(true)
+  }
+
   return (
     <div className="App">
       <br />
-      <Button
-        type="primary"
-        onClick={() => {
-          setUsername(undefined)
-          setGreetUserVisible(true)
-        }}
-      >
+      <Button type="primary" onClick={_event => openGreetUser(undefined)}>
         Greet User
       </Button>
 
@@ -48,10 +47,7 @@ function App() {
       <Button
         type="primary"
         onClick={openWouldYouLikeToSignInModalBefore(
-          (username: string) => () => {
-            setUsername(username)
-            setGreetUserVisible(true)
-          }
+          (username: string | undefined) => _event => openGreetUser(username)
         )}
       >
         Greet User after Signing In
