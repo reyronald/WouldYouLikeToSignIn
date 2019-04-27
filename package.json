@@ -1,0 +1,31 @@
+{
+  "name": "would-you-like-to-sign-in",
+  "version": "1.0.0",
+  "description": "The `WouldYouLikeToSignIn` component provides the funcionality of displaying one or two modals that ask if the user wants to sign in  and then show a sign in form before proceeding to execute any kind of action provided in the `actionCallback` prop.\n\nThe idea is to provide the easiest way of intercepting any kind of action with this set of prompts from any component when necessary. The Signin In case is just used as an illustrative example, but the same technical approach can be used for any sequence of modals.",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@emotion/core": "10.0.10",
+    "antd": "3.16.6",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-scripts": "2.1.8"
+  },
+  "devDependencies": {
+    "@types/react": "16.8.14",
+    "@types/react-dom": "16.8.4",
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
