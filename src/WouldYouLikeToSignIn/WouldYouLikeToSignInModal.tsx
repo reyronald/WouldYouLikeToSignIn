@@ -37,12 +37,11 @@ export default function WouldYouLikeToSignInModal({
         `}
       >
         <Button onClick={() => onNo(dontShowMessageAgain)}>
-          No, continue without signing in{' '}
+          No, continue without signing in
         </Button>
 
         <Button type="primary" onClick={() => onYes(dontShowMessageAgain)}>
-          {' '}
-          Yes, Sign In{' '}
+          Yes, Sign In
         </Button>
       </div>
 
