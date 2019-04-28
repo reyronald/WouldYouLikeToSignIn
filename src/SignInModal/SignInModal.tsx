@@ -16,6 +16,7 @@ export default function SignInModal({ visible, onCancel, onContinue }: Props) {
     <Modal title="Sign In" visible={visible} footer={null} onCancel={onCancel}>
       <div>
         <Input
+          name="username"
           placeholder="username"
           prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
           value={username}
