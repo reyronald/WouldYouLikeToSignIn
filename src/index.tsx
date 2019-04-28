@@ -17,13 +17,15 @@ function App() {
   const [greetUserVisible, setGreetUserVisible] = useState(false)
   const [username, setUsername] = useState()
   const [{ actionCallback }, setActionCallback] = useState({
-    actionCallback: (username: string) => {},
+    actionCallback: (username?: string) => {},
   })
 
-  const openWouldYouLikeToSignInModalBefore = fn => (...args) => {
+  const openWouldYouLikeToSignInModalBefore = (
+    fn: (username?: string) => Function
+  ) => (...args: any[]) => {
     setWouldYouLikeToSignInModalVisible(true)
     setActionCallback({
-      actionCallback: (username: string) => {
+      actionCallback: (username?: string) => {
         fn(username)(...args)
       },
     })
@@ -47,7 +49,8 @@ function App() {
       <Button
         type="primary"
         onClick={openWouldYouLikeToSignInModalBefore(
-          (username: string | undefined) => _event => openGreetUser(username)
+          (username: string | undefined) => (_event: MouseEvent) =>
+            openGreetUser(username)
         )}
       >
         Greet User after Signing In
