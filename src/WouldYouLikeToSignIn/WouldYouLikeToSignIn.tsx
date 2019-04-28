@@ -28,36 +28,38 @@ export default function WouldYouLikeToSignIn({
     }
   }, [visible])
 
-  return (
-    shouldOpenModal && (
-      <>
-        <WouldYouLikeToSignInModal
-          visible={visible}
-          onCancel={() => {
-            setVisible(false)
-          }}
-          onYes={dontShowMessageAgain => {
-            setVisible(false)
-            setSignInModalVisible(true)
-          }}
-          onNo={dontShowMessageAgain => {
-            setVisible(false)
-            actionCallback()
-          }}
-        />
+  if (!shouldOpenModal) {
+    return null
+  }
 
-        <SignInModal
-          visible={signInModalVisible}
-          onCancel={() => {
-            setSignInModalVisible(false)
-          }}
-          onContinue={(username: string) => {
-            setSignInModalVisible(false)
-            actionCallback(username)
-          }}
-        />
-      </>
-    )
+  return (
+    <>
+      <WouldYouLikeToSignInModal
+        visible={visible}
+        onCancel={() => {
+          setVisible(false)
+        }}
+        onYes={dontShowMessageAgain => {
+          setVisible(false)
+          setSignInModalVisible(true)
+        }}
+        onNo={dontShowMessageAgain => {
+          setVisible(false)
+          actionCallback()
+        }}
+      />
+
+      <SignInModal
+        visible={signInModalVisible}
+        onCancel={() => {
+          setSignInModalVisible(false)
+        }}
+        onContinue={(username: string) => {
+          setSignInModalVisible(false)
+          actionCallback(username)
+        }}
+      />
+    </>
   )
 }
 
