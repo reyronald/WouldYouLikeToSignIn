@@ -53,6 +53,7 @@ export default function WouldYouLikeToSignInModal({
         `}
       >
         <Checkbox
+          name="dontShowMessageAgain"
           value={dontShowMessageAgain}
           onChange={event => {
             setDontShowMessageAgain(event.target.checked)
